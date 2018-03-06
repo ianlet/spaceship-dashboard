@@ -1,0 +1,31 @@
+.team-stats {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+
+  &__name {
+    color: lightgray;
+    text-transform: uppercase;
+    margin: 0 5px;
+  }
+
+  &__progress {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__progress-item {
+    margin: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: lightgray;
+  }
+
+  &__stage-status {
+    background-color: green;
+    width: 12px;
+    height: 12px;
+    margin: 4px;
+    border-radius: 50%;
+  }
+}
