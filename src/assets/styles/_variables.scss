@@ -115,3 +115,24 @@ $action-secondary-bg:           $color-secondary !default;
 
 /// @prop {string} $action-secondary-border [$color-secondary] - secondary action border color
 $action-secondary-border:       $color-secondary !default;
+
+/* path */
+$font-path: "../fonts";
+
+/* fonts */
+$poppinsRegular: "poppinsregular";
+$poppinsMedium: "poppinsmedium";
+$hindRegular: "hindregular";
+$hindMedium: "hindmedium";
+$hindLight: "hindlight";
+$hindSemibold: "hindsemibold";
+$hindBold: "hindbold";
+
+/* colors */
+$white: #fff;
+$black: #000;
+$lightRed: #f4516c;
+$lightGreen: #34bfa3;
+$lightBlue: #36a3f7;
+$lightGray: #858c90;
+$csYellow: #ffb822;
