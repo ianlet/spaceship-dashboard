@@ -6,6 +6,12 @@
   margin: 20px;
   background-color: $lightGray;
 
+  &__divider {
+    width: 2px;
+    border-right: 2px solid white;
+    height: 40px;
+  }
+
   &__rank {
     width: 50px;
     height: 50px;
@@ -35,11 +41,6 @@
   &__score-penalty {
     color: red;
     font-weight: 200;
-
-  &__divider {
-    display: flex;
-    border-right: 2px solid white;
-    height: 50%;
   }
 
   &__name {
@@ -68,7 +69,6 @@
     text-align: center;
     color: white;
     font: 10px Arial, sans-serif;
-
   }
 
   &__stage-status {
