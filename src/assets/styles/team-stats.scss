@@ -35,6 +35,11 @@
   &__score-penalty {
     color: red;
     font-weight: 200;
+
+  &__divider {
+    display: flex;
+    border-right: 2px solid white;
+    height: 50%;
   }
 
   &__name {
@@ -44,6 +49,11 @@
     text-transform: uppercase;
   }
 
+  &__progress-panel {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__progress {
     display: flex;
     flex-direction: row;
@@ -51,9 +61,14 @@
 
   &__progress-item {
     margin: 2px;
-    width: 18px;
-    height: 18px;
-    background-color: lightgray;
+    border-radius: 50%;
+    border: 2px solid #666;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: white;
+    font: 10px Arial, sans-serif;
+
   }
 
   &__stage-status {
