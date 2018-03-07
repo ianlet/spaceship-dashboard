@@ -6,6 +6,37 @@
   margin: 20px;
   background-color: $lightGray;
 
+  &__rank {
+    width: 50px;
+    height: 50px;
+    border-style: solid;
+    border-color: $csYellow;
+    @include border-radius-all(10px);
+    text-align: center;
+    color: $csYellow;
+    font-family: $hindLight;
+    font-size: 35px;
+  }
+  
+  &__score {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    //height: 60px;
+    text-align: right;
+    font-size: 1.2rem;
+  }
+
+  &__score-total {
+    color: limegreen;
+    font-weight: 800;
+  }
+
+  &__score-penalty {
+    color: red;
+    font-weight: 200;
+  }
+
   &__name {
     margin: 0 5px;
     font-family: $hindRegular;
@@ -35,17 +66,8 @@
     line-height: 32px;
     color: $white;
     @include border-radius-all(50px);
-    background-color: $lightGreen;
+    background-color: $lightRed;
     text-decoration: none;
     border: none;
-    cursor: pointer;
-
-    &:focus,
-    &:active,
-    &:hover {
-      color: $white;
-      text-decoration: none;
-      background-color: $lightRed;
-    }
   }
 }
