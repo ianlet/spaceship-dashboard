@@ -6,11 +6,22 @@
   margin: 20px;
   background-color: $lightGray;
 
+  &__divider {
+    display: flex;
+    border-right: 2px solid white;
+    height: 50%;
+  }
+
   &__name {
     margin: 0 5px;
     font-family: $hindRegular;
     color: $csYellow;
     text-transform: uppercase;
+  }
+
+  &__progress-panel {
+    display: flex;
+    flex-direction: column;
   }
 
   &__progress {
@@ -20,9 +31,14 @@
 
   &__progress-item {
     margin: 2px;
-    width: 18px;
-    height: 18px;
-    background-color: lightgray;
+    border-radius: 50%;
+    border: 2px solid #666;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: white;
+    font: 10px Arial, sans-serif;
+
   }
 
   &__stage-status {
