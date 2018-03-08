@@ -13,14 +13,14 @@
   }
 
   &__rank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50px;
     height: 50px;
     border-style: solid;
-    border-color: $csYellow;
     @include border-radius-all(10px);
-    text-align: center;
     color: $csYellow;
-    font-family: $hindLight;
     font-size: 35px;
   }
   
@@ -61,12 +61,14 @@
   }
 
   &__progress-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 2px;
     border-radius: 50%;
     border: 2px solid #666;
     width: 20px;
     height: 20px;
-    text-align: center;
     color: white;
     font: 10px Arial, sans-serif;
   }
