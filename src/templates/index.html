@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="assets/styles/commons.bundle.css">
     <meta charset="utf-8">
-    <title>Hello webpack</title>
+    <title>Hello CS dashboard</title>
 </head>
 <body>
    <div class="dashboard">
@@ -22,26 +22,22 @@
                 <div class="team-stats__divider"></div>
 
                 <div class="team-stats__progress-panel">
-                    <div class="team-stats__progress">
-                        <div class="team-stats__progress-item">1</div>
-                        <div class="team-stats__progress-item">2</div>
-                        <div class="team-stats__progress-item">3</div>
-                        <div class="team-stats__progress-item">4</div>
-                        <div class="team-stats__progress-item">5</div>
-                    </div>
-                    <div class="team-stats__progress">
-                        <div class="team-stats__progress-item">6</div>
-                        <div class="team-stats__progress-item">7</div>
-                        <div class="team-stats__progress-item">8</div>
-                        <div class="team-stats__progress-item">9</div>
-                        <div class="team-stats__progress-item">10</div>
-                    </div>
+                    <div class="team-stats__progress-item failed">1</div>
+                    <div class="team-stats__progress-item completed">2</div>
+                    <div class="team-stats__progress-item uncompleted">3</div>
+                    <div class="team-stats__progress-item">4</div>
+                    <div class="team-stats__progress-item">5</div>
+                    <div class="team-stats__progress-item">6</div>
+                    <div class="team-stats__progress-item">7</div>
+                    <div class="team-stats__progress-item">8</div>
+                    <div class="team-stats__progress-item">9</div>
+                    <div class="team-stats__progress-item">10</div>
                 </div>
 
                 <div class="team-stats__divider"></div>
 
-                <div class="team-stats__stage-status">TEST</div>
-                <div class="team-stats__stage-status">BUILD</div>
+                <div class="team-stats__stage-status started">TEST</div>
+                <div class="team-stats__stage-status succeeded">BUILD</div>
             </div>
             <div class="team-stats">
                 <div class="team-stats__rank">11</div>
@@ -76,7 +72,7 @@
                 <div class="team-stats__divider"></div>
 
                 <div class="team-stats__stage-status">TEST</div>
-                <div class="team-stats__stage-status">BUILD</div>
+                <div class="team-stats__stage-status failed">BUILD</div>
             </div>
 
         </div>
@@ -101,26 +97,15 @@
        <div class="team-stats__divider"></div>
 
        <div class="team-stats__progress-panel">
-           <div class="team-stats__progress">
-               <div class="team-stats__progress-item">1</div>
-               <div class="team-stats__progress-item">2</div>
-               <div class="team-stats__progress-item">3</div>
-               <div class="team-stats__progress-item">4</div>
-               <div class="team-stats__progress-item">5</div>
-           </div>
-           <div class="team-stats__progress">
-               <div class="team-stats__progress-item">6</div>
-               <div class="team-stats__progress-item">7</div>
-               <div class="team-stats__progress-item">8</div>
-               <div class="team-stats__progress-item">9</div>
-               <div class="team-stats__progress-item">10</div>
-           </div>
+           <% _.each( team.user_stories, function( us ){ %>
+           <div class="team-stats__progress-item <%- us.status  %>"><%- us.number  %></div>
+           <% }); %>
        </div>
 
        <div class="team-stats__divider"></div>
 
-       <div class="team-stats__stage-status"><%- team.build %></div>
-       <div class="team-stats__stage-status"><%- team.test %></div>
+       <div class="team-stats__stage-status <%- team.build %>">Build</div>
+       <div class="team-stats__stage-status <%- team.test %>">Test</div>
    </div>
 </script>
 <!-- END UNDERSCORE 'team-stats' TEMPLATE -->
@@ -135,26 +120,56 @@
         $("script.tmpl-TeamStats").html()
     );
 
-    var teamData = {
-        rank: 5,
+    var teamData1 = {
+        rank: 7,
         name: "Underscore Rocks",
         score: 1010,
-        penalty: 100,
-        build: "test",
-        test: "build"
+        penalty: 39,
+        user_stories: [
+            { "number": 1, "status": "completed" },
+            { "number": 2, "status": "failed" },
+            { "number": 3, "status": "uncompleted" },
+            { "number": 4, "status": "completed" },
+            { "number": 5, "status": "failed" },
+            { "number": 6, "status": "failed" },
+            { "number": 7, "status": "failed" },
+            { "number": 8, "status": "uncompleted" },
+            { "number": 9, "status": "uncompleted" },
+            { "number": 10, "status": "completed" },
+        ],
+        build: "succeeded",
+        test: "failed"
     };
 
-    $("#left-panel").append( template(teamData) );
-    $("#left-panel").append( template(teamData) );
-    $("#left-panel").append( template(teamData) );
-    $("#left-panel").append( template(teamData) );
-    $("#left-panel").append( template(teamData) );
-    $("#right-panel").append( template(teamData) );
-    $("#right-panel").append( template(teamData) );
-    $("#right-panel").append( template(teamData) );
-    $("#right-panel").append( template(teamData) );
-    $("#right-panel").append( template(teamData) );
-    $("#right-panel").append( template(teamData) );
+    var teamData2 = {
+        rank: 13,
+        name: "Underscore Rocks",
+        score: 666,
+        penalty: 15,
+        user_stories: [
+            { "number": 1, "status": "uncompleted" },
+            { "number": 2, "status": "failed" },
+            { "number": 3, "status": "uncompleted" },
+            { "number": 4, "status": "completed" },
+            { "number": 5, "status": "failed" },
+            { "number": 6, "status": "uncompleted" },
+            { "number": 7, "status": "failed" },
+            { "number": 8, "status": "completed" },
+            { "number": 9, "status": "uncompleted" },
+            { "number": 10, "status": "failed" },
+        ],
+        build: "failed",
+        test: "started"
+    };
+
+    $("#left-panel").append( template(teamData1) );
+    $("#left-panel").append( template(teamData2) );
+    $("#left-panel").append( template(teamData2) );
+    $("#left-panel").append( template(teamData2) );
+    $("#left-panel").append( template(teamData1) );
+    $("#right-panel").append( template(teamData2) );
+    $("#right-panel").append( template(teamData2) );
+
 
 </script>
 
