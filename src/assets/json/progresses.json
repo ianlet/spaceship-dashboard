@@ -1,0 +1,20 @@
+{
+  "rank": 3,
+  "name": "Undisputeds",
+  "score": 2050,
+  "penalty": 300
+  "user_stories": [
+    { "number": 1, "status": "failed" },
+    { "number": 2, "status": "completed" },
+    { "number": 3, "status": "completed" },
+    { "number": 4, "status": "failed" },
+    { "number": 5, "status": "uncompleted" },
+    { "number": 6, "status": "uncompleted" },
+    { "number": 7, "status": "uncompleted" },
+    { "number": 8, "status": "uncompleted" },
+    { "number": 9, "status": "uncompleted" },
+    { "number": 10, "status": "uncompleted" }
+  ],
+  "build": "succeeded",
+  "test": "failed"
+}   
