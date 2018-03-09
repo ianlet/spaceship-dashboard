@@ -2,7 +2,7 @@
   "rank": 3,
   "name": "Undisputeds",
   "score": 2050,
-  "penalty": 300
+  "penalty": 300,
   "user_stories": [
     { "number": 1, "status": "failed" },
     { "number": 2, "status": "completed" },

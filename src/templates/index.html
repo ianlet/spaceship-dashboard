@@ -121,14 +121,17 @@
         $("script.tmpl-TeamStats").html()
     );
 
-    $.ajax({
-        type : 'GET',
-        dataType : 'json',
-        async: false,
-        url: '/src/assets/json/status.json',
-        success : function(data) {
-            console.log(data);
+    // TODO - configurer webpack pour qu'il retourne progresses.json
+    fetch("assets/json/progresses.json").then(function(res) {
+        if (res.ok) {
+            res.json().then(function(data) {
+                console.log(data);
+            });
+        } else {
+            console.log("Looks like the response wasn't perfect, got status", res.status);
         }
+    }, function(e) {
+        console.log("Fetch failed!", e);
     });
 
     var teamData1 = {
@@ -174,12 +177,10 @@
     };
 
     $("#left-panel").append( template(teamData1) );
-    $("#left-panel").append( template(teamData2) );
-    $("#left-panel").append( template(teamData2) );
-    $("#left-panel").append( template(teamData2) );
-    $("#left-panel").append( template(teamData1) );
     $("#right-panel").append( template(teamData2) );
-    $("#right-panel").append( template(teamData2) );
+    // TODO - à voir si on peut éviter l'usage de jQuery
+    // si on fait la meme chose dans javascript pure, il ne prends pas en compte le css
+    // document.getElementById("right-panel").append( template(teamData2) );
 </script>
 
 
