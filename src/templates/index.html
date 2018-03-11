@@ -116,49 +116,8 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <script type="text/javascript" src="assets/js/commons.js"></script>
    <script type="text/javascript" src="assets/js/app.bundle.js"></script>
-
-<script type="text/javascript">
-
-    _.templateSettings.variable = "team";
-    var template = _.template(
-        $("script.tmpl-TeamStats").html()
-    );
-
-    axios.get('http://127.0.0.1:8000/mounts/')
-        .then(function (response) {
-            //var teamID = JSON.parse(response.request.response).rank;
-            for (i = 1; i < 5; i++) {
-                $("#left-panel").append(template(JSON.parse(response.request.response)));
-                document.getElementById("rank").setAttribute("id", i);
-            }
-
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-
-    /*
-
-    setInterval(function(){
-        axios.get('http://127.0.0.1:8000/mounts/')
-            .then(function (response) {
-                var teamID = JSON.parse(response.request.response).rank;
-                console.log(JSON.parse(response.request.response).rank);
-                var teamStats = document.getElementById(teamID);
-                if(teamStats) {
-                    $('#'+teamID).replaceWith(template(JSON.parse(response.request.response)));
-                }
-                else {
-                    $("#left-panel").append(template(JSON.parse(response.request.response)));
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }, 10000); */
-
-</script>
 
 
 </body>
