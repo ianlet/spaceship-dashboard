@@ -124,7 +124,7 @@
     var template = _.template(
         $("script.tmpl-TeamStats").html()
     );
-    
+
     axios.get('http://127.0.0.1:8000/mounts/')
         .then(function (response) {
             //var teamID = JSON.parse(response.request.response).rank;
