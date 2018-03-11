@@ -14,7 +14,8 @@ const config = {
     entry: {
         index: './index.js',
         uikit: './uikit.js',
-        contact: './contact.js'
+        contact: './contact.js',
+        app: './app.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -93,7 +94,7 @@ const config = {
     plugins: [
         new webpack.NamedModulesPlugin(),
         extractCSS,
-        extractCommons
+        extractCommons,
     ]
 };
 
