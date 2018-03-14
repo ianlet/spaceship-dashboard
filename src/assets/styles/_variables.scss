@@ -120,6 +120,13 @@ $action-secondary-border:       $color-secondary !default;
 $font-path: "../fonts";
 
 /* fonts */
+// Google fonts
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+
+$roboto-slab: 'Roboto Slab', serif;
+
+
+
 
 /* colors */
 $white: #fff;
