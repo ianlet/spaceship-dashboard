@@ -47,7 +47,7 @@
   &__name {
     width: 20%;
     margin: 0 5px;
-    font-family: $hindRegular;
+    //font-family: $hindRegular;
     color: $csYellow;
     text-transform: uppercase;
   }
@@ -76,7 +76,8 @@
     width: 20px;
     height: 20px;
     color: $uncompletedUS;
-    font: 10px $hindLight, sans-serif;
+    font: 10px sans-serif;
+    //font: 10px $hindLight, sans-serif;
     &.uncompleted {
       color: $uncompletedUS;
       border-color: $uncompletedUS;
@@ -95,7 +96,7 @@
     display: inline-block;
     padding: 0 18px;
     height: 32px;
-    font-family: $hindBold;
+    //font-family: $hindBold;
     font-size: 12px;
     text-transform: uppercase;
     line-height: 32px;
