@@ -24,7 +24,7 @@
     color: $csYellow;
     font-size: 25px;
   }
-  
+
   &__score {
     display: flex;
     flex-direction: column;
@@ -81,7 +81,7 @@
       color: $uncompletedUS;
       border-color: $uncompletedUS;
     }
-    &.completed {
+    &.succeeded {
       color: $completedUS;
       border-color: $completedUS;
     }

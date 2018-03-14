@@ -1,5 +1,7 @@
 import './assets/styles/styles.scss';
 
+require('html-loader!./templates/index.html');
+
 _.templateSettings.variable = "team";
 var template = _.template(
     $("script.tmpl-TeamStats").html()
@@ -17,8 +19,8 @@ setInterval(function(){
     axios.get('http://127.0.0.1:8000/mounts/')
         .then(function (response) {
             for (var i = 0; i < 2; i++) {
-                var teamRank = JSON.parse(response.request.response).results[i].rank;
-                $(`#${teamRank}`).replaceWith(template(JSON.parse(response.request.response).results[i]));
+                var teamRank = JSON.parse(response.request.response)[i].rank;
+                $(`#${teamRank}`).replaceWith(template(JSON.parse(response.request.response)[i]));
             }
         })
         .catch(function (error) {

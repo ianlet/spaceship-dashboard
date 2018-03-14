@@ -6,6 +6,7 @@
     <title>Hello CS dashboard</title>
 </head>
 <body>
+    <link rel="import" href="team-stats.html">
    <div class="dashboard">
         <div class="dashboard__panel" id="left-panel">
         </div>
@@ -18,33 +19,31 @@
     <div class="team-stats" id="rank">
 
        <div class="team-stats__rank"><%- team.rank %></div>
-       <div class="team-stats__name"><%- team.name %></div>
+       <div class="team-stats__name"><%- team.team %></div>
 
        <div class="team-stats__divider"></div>
 
        <div class="team-stats__score">
-           <div class="team-stats__score-total"><%- team.score %></div>
-           <div class="team-stats__score-penalty">-<%- team.penalty %></div>
+           <div class="team-stats__score-total"><%- team.points %></div>
+           <div class="team-stats__score-penalty">-<%- team.penalties %></div>
        </div>
 
        <div class="team-stats__divider"></div>
 
+
        <div class="team-stats__progress-panel">
-           <% _.each( team.user_stories, function( us ){ %>
+           <% _.each( team.userStories, function( us ){ %>
            <div class="team-stats__progress-item <%- us.status  %>"><%- us.number  %></div>
            <% }); %>
        </div>
 
        <div class="team-stats__divider"></div>
 
-       <div class="team-stats__stage-status <%- team.build %>">Build</div>
-       <div class="team-stats__stage-status <%- team.test %>">Test</div>
+       <div class="team-stats__stage-status <%- team.stages.build %>">Build</div>
+       <div class="team-stats__stage-status <%- team.stages.test %>">Test</div>
    </div>
 </script>
 <!-- END UNDERSCORE 'team-stats' TEMPLATE -->
-
-<!-- Include and run scripts. -->
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
