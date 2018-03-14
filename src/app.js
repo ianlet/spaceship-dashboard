@@ -8,7 +8,7 @@ var template = _.template(
 );
 
 for (var i = 1; i < 28; i++) {
-    if (i < 14) {
+    if (i < 16) {
         $('#left-panel').append(`<div id="${i}"></div>`);
     } else {
         $('#right-panel').append(`<div id="${i}"></div>`);
@@ -18,7 +18,7 @@ for (var i = 1; i < 28; i++) {
 setInterval(function(){
     axios.get('http://127.0.0.1:8000/mounts/')
         .then(function (response) {
-            for (var i = 0; i < 2; i++) {
+            for (var i = 0; i < 28; i++) {
                 var teamRank = JSON.parse(response.request.response)[i].rank;
                 $(`#${teamRank}`).replaceWith(template(JSON.parse(response.request.response)[i]));
             }
