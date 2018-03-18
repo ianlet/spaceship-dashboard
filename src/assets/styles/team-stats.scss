@@ -115,4 +115,28 @@
       background-color: $failedUS;
     }
   }
+
+  &__death-count-container {
+    display: flex;
+  }
+
+  &__death-count-img {
+    height: 50px;
+  }
+
+  &__death-counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    border-radius: 50%;
+    border: 2px solid;
+    width: 28px;
+    height: 28px;
+    font-size: 10px;
+    font-family: $roboto-slab, sans-serif;
+    color: $failedUS;
+    border-color: $failedUS;
+    align-self: flex-end;
+  }
 }
