@@ -26,9 +26,10 @@ for (var i = 1; i < 28; i++) {
 setInterval(function(){
     axios.get('http://127.0.0.1:8000/mounts/')
         .then(function (response) {
-            for (var i = 0; i < 14; i++) {
+            for (var i = 0; i < 28; i++) {
                 var teamRank = JSON.parse(response.request.response)[i].rank;
                 $(`#${teamRank}`).replaceWith(teamStats_tmpl(JSON.parse(response.request.response)[i]));
+                console.log('Replace took place');
             }
         })
         .catch(function (error) {
