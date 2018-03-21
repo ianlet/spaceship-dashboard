@@ -10,6 +10,8 @@
     width: 50%;
     background-color: $csBackground;
     border: 2px solid $csYellow;
+
+    filter: blur(0px);
   }
 
   &__event-container {
@@ -20,13 +22,13 @@
     position: absolute;
     align-self: center;
     justify-content: center;
-    width: 850px;
-    height: 450px;
+    width: 65%;
+    height: 65%;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    border: 1px dashed #900;
-    background: radial-gradient(#fff, #aaa);
+    //border: 1px dashed #900;
+    //background: radial-gradient(#fff, #aaa);
   }
 }

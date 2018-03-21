@@ -44,8 +44,8 @@ window.onkeypress = function(event) {
         if (eventContainer == null) {
             showEvent();
         } else {
-            // destroy event container
             if (eventContainer.parentNode) eventContainer.parentNode.removeChild(eventContainer);
+            blurDashboardPanels(0);
         }
     }
 }
@@ -53,5 +53,11 @@ window.onkeypress = function(event) {
 var hardCodedEvent = {"name":"Penguins Penguins Rocket", "event": "Just BUILDED their stuffs", "status": "this BUILD SUCKS :D"};
 
 function showEvent() {
+    blurDashboardPanels(4);
     $('.dashboard').append(eventContainer_tmpl(hardCodedEvent));
+}
+
+function blurDashboardPanels(value) {
+    $('#left-panel').css("filter", "blur(" + value + "px)");
+    $('#right-panel').css("filter", "blur(" + value + "px)");
 }
