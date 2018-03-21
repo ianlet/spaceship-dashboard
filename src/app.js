@@ -1,4 +1,4 @@
-import './assets/styles/styles.scss';
+import './assets/styles/styles.scss'
 
 require('html-loader!./templates/index.html');
 
@@ -16,11 +16,12 @@ for (var i = 1; i < 28; i++) {
 }
 
 setInterval(function(){
-    axios.get('http://127.0.0.1:8000/mounts/')
+    axios.get('http://127.0.0.1:9000/progress')
         .then(function (response) {
-            for (var i = 0; i < 28; i++) {
-                var teamRank = JSON.parse(response.request.response)[i].rank;
-                $(`#${teamRank}`).replaceWith(template(JSON.parse(response.request.response)[i]));
+            var teams = JSON.parse(response.request.response)
+            for (var i = 0; i < teams.length; i++) {
+                var teamRank = teams[i].rank;
+                $(`#${teamRank}`).replaceWith(template(teams[i]));
             }
         })
         .catch(function (error) {
