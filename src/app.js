@@ -24,12 +24,12 @@ for (var i = 1; i < 28; i++) {
 }
 
 setInterval(function(){
-    axios.get('http://127.0.0.1:8000/mounts/')
+    axios.get('http://127.0.0.1:9000/progress')
         .then(function (response) {
-            for (var i = 0; i < 28; i++) {
-                var teamRank = JSON.parse(response.request.response)[i].rank;
-                $(`#${teamRank}`).replaceWith(teamStats_tmpl(JSON.parse(response.request.response)[i]));
-                console.log('Replace took place');
+            var teams = JSON.parse(response.request.response)
+            for (var i = 0; i < teams.length; i++) {
+                var teamRank = teams[i].rank;
+                $(`#${teamRank}`).replaceWith(teamStats_tmpl(teams[i]));
             }
         })
         .catch(function (error) {
