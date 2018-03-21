@@ -13,55 +13,70 @@
         </div>
    </div>
 
-<!-- BEGIN UNDERSCORE 'team-stats' TEMPLATE -->
-<script type="text/template" class="tmpl-TeamStats">
-    <div class="team-stats" id="rank">
+   <!-- BEGIN UNDERSCORE 'team-stats' TEMPLATE -->
+   <script type="text/template" class="tmpl-TeamStats">
+       <div class="team-stats" id="rank">
 
-       <div class="team-stats__rank"><%- team.rank %></div>
-       <div class="team-stats__name"><%- team.team %></div>
+           <div class="team-stats__rank"><%- team.rank %></div>
+           <div class="team-stats__name"><%- team.team %></div>
 
-       <div class="team-stats__divider"></div>
+           <div class="team-stats__divider"></div>
 
-       <div class="team-stats__score">
-           <div class="team-stats__score-total"><%- team.points %></div>
-           <div class="team-stats__score-penalty">-<%- team.penalties %></div>
+           <div class="team-stats__score">
+               <div class="team-stats__score-total"><%- team.points %></div>
+               <div class="team-stats__score-penalty">-<%- team.penalties %></div>
+           </div>
+
+           <div class="team-stats__divider"></div>
+
+
+           <div class="team-stats__progress-panel">
+
+               <div class="team-stats__progress-item <%- team.userStories.sendSuppliesToAResearchTeam %>">1</div>
+               <div class="team-stats__progress-item <%- team.userStories.anotherSuperUserStory %>">2</div>
+               <div class="team-stats__progress-item">3</div>
+               <div class="team-stats__progress-item">4</div>
+               <div class="team-stats__progress-item">5</div>
+               <div class="team-stats__progress-item">6</div>
+               <div class="team-stats__progress-item">7</div>
+               <div class="team-stats__progress-item">8</div>
+               <div class="team-stats__progress-item">9</div>
+               <div class="team-stats__progress-item">10</div>
+           </div>
+
+           <div class="team-stats__divider"></div>
+
+           <div class="team-stats__stage-status <%- team.stages.build %>">Build</div>
+           <div class="team-stats__stage-status <%- team.stages.test %>">Test</div>
+           <div class="team-stats__death-count-container">
+               <img class="team-stats__death-count-img"
+               <% if (team.deathCount > 20) { %> async src="../assets/images/pinguin-dead.png" <% } else { %> src="../assets/images/pinguin-angel-2.png" <% } %>alt="">
+               <div class="team-stats__death-counter"><%- team.deathCount %></div>
+           </div>
        </div>
+   </script>
+   <!-- END UNDERSCORE 'team-stats' TEMPLATE -->
 
-       <div class="team-stats__divider"></div>
-
-
-       <div class="team-stats__progress-panel">
-
-           <div class="team-stats__progress-item <%- team.userStories.sendSuppliesToAResearchTeam %>">1</div>
-           <div class="team-stats__progress-item <%- team.userStories.anotherSuperUserStory %>">2</div>
-           <div class="team-stats__progress-item">3</div>
-           <div class="team-stats__progress-item">4</div>
-           <div class="team-stats__progress-item">5</div>
-           <div class="team-stats__progress-item">6</div>
-           <div class="team-stats__progress-item">7</div>
-           <div class="team-stats__progress-item">8</div>
-           <div class="team-stats__progress-item">9</div>
-           <div class="team-stats__progress-item">10</div>
+   <!-- BEGIN UNDERSCORE 'event-container' TEMPLATE -->
+   <script type="text/template" class="tmpl-EventContainer">
+       <div class="dashboard__event-container" id="event-container">
+           <!--TODO this div  song is a joke :D -->
+           <div style="overflow:hidden; position:absolute; left:0; top:0; width:0px; height:0px;" class="dashboard__event-audio">
+                <embed src="https://www.youtube.com/v/EjMNNpIksaI?version=3&amp;hl=en_US&autoplay=1&amp;autohide=2" type="application/x-shockwave-flash" width="420" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>
+           </div>
+           <h2>Here will be the text content for the event</h2>
+           <h3><%- team.name %></h3>
+           <p><%- team.event %></p>
+           <p><%- team.status %></p>
        </div>
+   </script>
+   <!-- END UNDERSCORE 'event-container' TEMPLATE -->
 
-       <div class="team-stats__divider"></div>
-
-       <div class="team-stats__stage-status <%- team.stages.build %>">Build</div>
-       <div class="team-stats__stage-status <%- team.stages.test %>">Test</div>
-       <div class="team-stats__death-count-container">
-           <img class="team-stats__death-count-img"
-           <% if (team.deathCount > 20) { %> src="../assets/images/pinguin-dead.png" <% } else { %> src="../assets/images/pinguin-angel-2.png" <% } %>
-                alt="">
-           <div class="team-stats__death-counter"><%- team.deathCount %></div>
-       </div>
-   </div>
-</script>
-<!-- END UNDERSCORE 'team-stats' TEMPLATE -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="text/javascript" src="assets/js/commons.js"></script>
-<script type="text/javascript" src="assets/js/app.bundle.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <script type="text/javascript" src="assets/js/commons.js"></script>
+   <script type="text/javascript" src="assets/js/app.bundle.js"></script>
 
 
 </body>
