@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="assets/styles/commons.bundle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <meta charset="utf-8">
     <title>Hello CS dashboard</title>
 </head>
@@ -61,13 +62,20 @@
    <script type="text/template" class="tmpl-EventContainer">
        <div class="dashboard__event-container" id="event-container">
            <!--TODO this div  song is a joke :D -->
-           <div style="overflow:hidden; position:absolute; left:0; top:0; width:0px; height:0px;" class="dashboard__event-audio">
-                <embed src="https://www.youtube.com/v/EjMNNpIksaI?version=3&amp;hl=en_US&autoplay=1&amp;autohide=2" type="application/x-shockwave-flash" width="420" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>
-           </div>
-           <h2>Here will be the text content for the event</h2>
-           <h3><%- team.name %></h3>
-           <p><%- team.event %></p>
-           <p><%- team.status %></p>
+           <!--<div style="overflow:hidden; position:absolute; left:0; top:0; width:0px; height:0px;" class="dashboard__event-audio">-->
+                <!--<embed src="https://www.youtube.com/v/EjMNNpIksaI?version=3&amp;hl=en_US&autoplay=1&amp;autohide=2" type="application/x-shockwave-flash" width="420" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>-->
+           <!--</div>-->
+           <div class="effect-txt__netflix"> <%- team.name %> </div>
+           <div class="effect-txt__netflix"> <%- team.event %> </div>
+           <div class="effect-txt__netflix"> <%- team.status %> </div>
+
+           <!--<div class="effect-txt__shine"> <%- team.name %> </div>-->
+           <!--<div class="effect-txt__shine"> <%- team.event %> </div>-->
+           <!--<div class="effect-txt__shine"> <%- team.status %> </div>-->
+
+           <!--<div class="effect-txt__animated animated shake"> <%- team.name %> </div>-->
+           <!--<div class="effect-txt__animated animated shake"> <%- team.event %> </div>-->
+           <!--<div class="effect-txt__animated animated shake"> <%- team.status %> </div>-->
        </div>
    </script>
    <!-- END UNDERSCORE 'event-container' TEMPLATE -->

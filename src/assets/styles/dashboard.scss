@@ -16,20 +16,17 @@
     padding: 10px;
     opacity: 0.7;
     text-align: center;
-
     z-index: 100;
     position: absolute;
     align-self: center;
     justify-content: center;
     width: 850px;
     height: 450px;
-
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-
     border: 1px dashed #900;
-    background-color: #fdd;
+    background: radial-gradient(#fff, #aaa);
   }
 }

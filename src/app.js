@@ -10,10 +10,10 @@ _.templateSettings.variable = "team";
 var teamStats_tmpl = _.template(
     $("script.tmpl-TeamStats").html()
 );
+
 var eventContainer_tmpl = _.template(
     $("script.tmpl-EventContainer").html()
 );
-eventContainer_tmpl.variable = "event";
 
 for (var i = 1; i < 28; i++) {
     if (i < 16) {
@@ -49,7 +49,7 @@ window.onkeypress = function(event) {
     }
 }
 
-var hardCodedEvent = {"name":"BestTeamEver", "event": "Just BUILDED their stuffs", "status": "this BUILD SUCKS :D"};
+var hardCodedEvent = {"name":"Penguins Penguins Rocket", "event": "Just BUILDED their stuffs", "status": "this BUILD SUCKS :D"};
 
 function showEvent() {
     $('.dashboard').append(eventContainer_tmpl(hardCodedEvent));
