@@ -1,3 +1,36 @@
+.results {
+  background-image: url("http://images.all-free-download.com/images/graphiclarge/starry_night_192398.jpg");
+  height: inherit;
+}
+
+.race {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: inherit;
+  height:100%;
+
+  &__team {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-items: center;
+    transition:margin-bottom 1s;
+  }
+
+  &__team-name {
+    transform: rotate(270deg);
+    font-size: 12px;
+    margin-top:30px;
+    margin-bottom:20px;
+    word-break: keep-all;
+    text-align: center;
+    width: 4em;
+    color:white;
+    font-family: "Copperplate", Helvetica, sans-serif;
+  }
+}
+
 .team-stats {
   position: relative;
   display: flex;

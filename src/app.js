@@ -6,15 +6,29 @@ require('file-loader!./assets/images/pinguin-dead.png');
 require('file-loader!./assets/images/pinguin-angel-2.png');
 
 
+
+var progressPositions = new Map();
+var initialPosition = 4.5;
+var positionInterval = 4.5;
+for (var i = 1; i <= 10; i++) {
+    progressPositions.set(i, initialPosition);
+    initialPosition+= positionInterval;
+}
+
+
+// templates init
 _.templateSettings.variable = "team";
+var templateRace = _.template(
+    $("script.tmpl-teams-race").html()
+);
 var teamStats_tmpl = _.template(
     $("script.tmpl-TeamStats").html()
 );
-
 var eventContainer_tmpl = _.template(
     $("script.tmpl-EventContainer").html()
 );
 
+// fill initial team-stats container
 for (var i = 1; i < 28; i++) {
     if (i < 16) {
         $('#left-panel').append(`<div id="${i}"></div>`);
@@ -30,6 +44,48 @@ setInterval(function(){
             for (var i = 0; i < teams.length; i++) {
                 var teamRank = teams[i].rank;
                 $(`#${teamRank}`).replaceWith(teamStats_tmpl(teams[i]));
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}, 2000);
+
+function alternateDisplay() {
+    var race = document.getElementById("penguins-race");
+    if (race.style.display === "none") {
+        race.style.display = "block";
+    } else {
+        race.style.display = "none";
+    }
+}
+document.getElementById("penguins-race").style.display = "none";
+
+for (var i = 1; i < 5; i++) {
+    $('#race-panel').append(`<div class="race__team" id="${i}-race"></div>`);
+}
+
+axios.get('http://127.0.0.1:9000/progress')
+    .then(function (response) {
+        for (var i = 1; i < 10; i++) {
+            console.log("SHOULD REPLACE");
+            $(`#${i}`+ "-race").replaceWith(templateRace(JSON.parse(response.request.response)[i]));
+            document.getElementById("team-number").id = i + "-race";
+        }
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
+setInterval(function(){
+    alternateDisplay();
+    console.log("ELIANE");
+    axios.get('http://127.0.0.1:9000/progress')
+        .then(function (response) {
+            for (var i = 1; i < 5; i++) {
+                var nbSucceededStories = JSON.parse(response.request.response)[i].sucessStories;
+                console.log(i+"-race");
+                document.getElementById(i+"-race").style.marginBottom = progressPositions.get(nbSucceededStories).toString() + "%";
             }
         })
         .catch(function (error) {
