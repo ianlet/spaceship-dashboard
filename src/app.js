@@ -27,7 +27,7 @@ var eventContainer_tmpl = _.template(
 );
 
 // fill initial team-stats container
-for (var i = 1; i < 28; i++) {
+for (var i = 1; i < 30; i++) {
     if (i < 16) {
         $('#left-panel').append(`<div id="${i}"></div>`);
     } else {
