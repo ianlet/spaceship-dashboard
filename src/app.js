@@ -5,8 +5,7 @@ require('html-loader!./templates/index.html');
 require('file-loader!./assets/images/pinguin-dead.png');
 require('file-loader!./assets/images/pinguin-angel-2.png');
 
-
-
+// vars init
 var progressPositions = new Map();
 var initialPosition = 4.5;
 var positionInterval = 4.5;
@@ -14,7 +13,6 @@ for (var i = 1; i <= 10; i++) {
     progressPositions.set(i, initialPosition);
     initialPosition+= positionInterval;
 }
-
 
 // templates init
 _.templateSettings.variable = "team";
@@ -37,10 +35,11 @@ for (var i = 1; i < 28; i++) {
     }
 }
 
+// update team-stats (inginite loop)
 setInterval(function(){
     axios.get('http://127.0.0.1:9000/progress')
         .then(function (response) {
-            var teams = JSON.parse(response.request.response)
+            var teams = JSON.parse(response.request.response);
             for (var i = 0; i < teams.length; i++) {
                 var teamRank = teams[i].rank;
                 $(`#${teamRank}`).replaceWith(teamStats_tmpl(teams[i]));
@@ -51,24 +50,17 @@ setInterval(function(){
         });
 }, 2000);
 
-function alternateDisplay() {
-    var race = document.getElementById("penguins-race");
-    if (race.style.display === "none") {
-        race.style.display = "block";
-    } else {
-        race.style.display = "none";
-    }
-}
-document.getElementById("penguins-race").style.display = "none";
 
-for (var i = 1; i < 5; i++) {
+// init pinguin-race
+document.getElementById("penguins-race").style.display = "none";
+for (var i = 0; i < 5; i++) {
     $('#race-panel').append(`<div class="race__team" id="${i}-race"></div>`);
 }
 
+// update pinguin-race
 axios.get('http://127.0.0.1:9000/progress')
     .then(function (response) {
-        for (var i = 1; i < 10; i++) {
-            console.log("SHOULD REPLACE");
+        for (var i = 0; i < 10; i++) {
             $(`#${i}`+ "-race").replaceWith(templateRace(JSON.parse(response.request.response)[i]));
             document.getElementById("team-number").id = i + "-race";
         }
@@ -77,14 +69,11 @@ axios.get('http://127.0.0.1:9000/progress')
         console.log(error);
     });
 
-setInterval(function(){
-    alternateDisplay();
-    console.log("ELIANE");
+setInterval(function() {
     axios.get('http://127.0.0.1:9000/progress')
         .then(function (response) {
-            for (var i = 1; i < 5; i++) {
+            for (var i = 0; i < 5; i++) {
                 var nbSucceededStories = JSON.parse(response.request.response)[i].sucessStories;
-                console.log(i+"-race");
                 document.getElementById(i+"-race").style.marginBottom = progressPositions.get(nbSucceededStories).toString() + "%";
             }
         })
@@ -93,7 +82,7 @@ setInterval(function(){
         });
 }, 5000);
 
-
+// event handlers
 window.onkeypress = function(event) {
     if (event.keyCode == 32) {
         var eventContainer = document.getElementById("event-container");
@@ -103,6 +92,18 @@ window.onkeypress = function(event) {
             if (eventContainer.parentNode) eventContainer.parentNode.removeChild(eventContainer);
             blurDashboardPanels(0);
         }
+    } else if (event.keyCode == 13) {
+        alternateDisplay();
+    }
+}
+
+// functions
+function alternateDisplay() {
+    var race = document.getElementById("penguins-race");
+    if (race.style.display === "none") {
+        race.style.display = "block";
+    } else {
+        race.style.display = "none";
     }
 }
 
