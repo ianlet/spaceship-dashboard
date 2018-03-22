@@ -3,15 +3,13 @@
   display: flex;
   width: 100%;
   height: 100%;
+  background-size: contain;
+  background: $csBackground url("/assets/images/background-dark.png") no-repeat center;
 
   &__panel {
     display: flex;
     flex-direction: column;
     width: 50%;
-    background-color: $csBackground;
-    border: 2px solid $csYellow;
-
-    filter: blur(0px);
   }
 
   &__event-container {

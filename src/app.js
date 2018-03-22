@@ -1,4 +1,4 @@
-import './assets/styles/styles.scss';
+import './assets/styles/styles.scss'
 
 require('html-loader!./templates/team-stats.html');
 require('html-loader!./templates/index.html');
@@ -60,8 +60,9 @@ for (var i = 0; i < 5; i++) {
 // update pinguin-race
 axios.get('http://127.0.0.1:9000/progress')
     .then(function (response) {
-        for (var i = 0; i < 10; i++) {
-            $(`#${i}`+ "-race").replaceWith(templateRace(JSON.parse(response.request.response)[i]));
+      var teams = JSON.parse(response.request.response)
+      for (var i = 0; i < teams.length; i++) {
+        $(`#${i}` + '-race').replaceWith(templateRace(teams[i]))
             document.getElementById("team-number").id = i + "-race";
         }
     })

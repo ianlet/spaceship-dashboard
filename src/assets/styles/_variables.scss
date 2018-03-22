@@ -136,11 +136,11 @@ $lightGreen: #34bfa3;
 $lightBlue: #36a3f7;
 $lightGray: #858c90;
 
-$csBackground: #221e1f;
+$csBackground: #0E0E0E;
 $csOrange: #f26631;
-$csYellow: yellow;
+$csYellow: #F8D238;
 $csYellowLogo: #f8d238;
 
-$failedUS: red;
-$uncompletedUS: #666;
+$failedUS: $csOrange;
+$uncompletedUS: #787a6a;
 $completedUS: limegreen;
