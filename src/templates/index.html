@@ -12,11 +12,6 @@
 </head>
 <body>
 
-    <div class="results" id="penguins-race">
-        <div class="race" id="race-panel">
-        </div>
-    </div>
-
     <div class="dashboard" id="dashboard">
         <div class="dashboard__panel" id="left-panel">
         </div>
@@ -24,16 +19,6 @@
         </div>
     </div>
 
-    <!-- BEGIN UNDERSCORE 'race-container' TEMPLATE -->
-    <script type="text/template" class="tmpl-teams-race">
-        <div class="race__team" id="team-number">
-            <div class="race__team-name"> <%- team.team %> </div>
-            <div> <img width="70" height="60" src="../assets/images/cs.png"> </div>
-        </div>
-    </script>
-    <!-- END UNDERSCORE 'race-container' TEMPLATE -->
-
-   <!-- BEGIN UNDERSCORE 'team-stats' TEMPLATE -->
    <script type="text/template" class="tmpl-TeamStats">
        <div class="team-stats" id="<%- team.rank %>">
            <div class="team-stats__rank"><%- team.rank %></div>
@@ -68,31 +53,6 @@
            </div>
        </div>
    </script>
-   <!-- END UNDERSCORE 'team-stats' TEMPLATE -->
-
-   <!-- BEGIN UNDERSCORE 'event-container' TEMPLATE -->
-   <script type="text/template" class="tmpl-EventContainer">
-       <div class="dashboard__event-container" id="event-container">
-           <!--TODO this div  song is a joke :D -->
-           <!--<div style="overflow:hidden; position:absolute; left:0; top:0; width:0px; height:0px;" class="dashboard__event-audio">-->
-                <!--<embed src="https://www.youtube.com/v/EjMNNpIksaI?version=3&amp;hl=en_US&autoplay=1&amp;autohide=2" type="application/x-shockwave-flash" width="420" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>-->
-           <!--</div>-->
-           <div class="effect-txt__netflix"> <%- team.name %> </div>
-           <div class="effect-txt__netflix"> <%- team.event %> </div>
-           <div class="effect-txt__netflix"> <%- team.status %> </div>
-
-           <!--<div class="effect-txt__shine"> <%- team.name %> </div>-->
-           <!--<div class="effect-txt__shine"> <%- team.event %> </div>-->
-           <!--<div class="effect-txt__shine"> <%- team.status %> </div>-->
-
-           <!--<div class="effect-txt__animated animated shake"> <%- team.name %> </div>-->
-           <!--<div class="effect-txt__animated animated shake"> <%- team.event %> </div>-->
-           <!--<div class="effect-txt__animated animated shake"> <%- team.status %> </div>-->
-       </div>
-   </script>
-   <!-- END UNDERSCORE 'event-container' TEMPLATE -->
-
-
 
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
