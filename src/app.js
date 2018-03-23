@@ -19,7 +19,7 @@ for (var i = 1; i <= nbTeams; i++) {
 }
 
 setInterval(function(){
-    axios.get('http://127.0.0.1:8000/mounts/')
+    axios.get('http://127.0.0.1:9000/progress')
         .then(function (response) {
             var teams = JSON.parse(response.request.response);
             for (var i = 0; i < teams.length; i++) {
