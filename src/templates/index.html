@@ -51,7 +51,7 @@
 
            <div class="team-stats__progress-panel">
                <% Object.keys(team.userStories).forEach(function (userStory, i) { %>
-               <div class="team-stats__progress-item <%- (team.stages.build === 'succeeded' && team.stages.test === 'succeeded') ? team.userStories[userStory] : 'failed' %>">
+               <div class="team-stats__progress-item <%- (team.stages.build === 'succeeded' && team.stages.test === 'succeeded') ? team.userStories[userStory] : 'uncompleted' %>">
                    <%- i + 1 %>
                </div>
                <% }) %>
@@ -60,7 +60,7 @@
            <div class="team-stats__divider"></div>
 
            <div class="team-stats__stage-status <%- team.stages.build %>">Build</div>
-           <div class="team-stats__stage-status <%- (team.stages.build === 'succeeded') ? team.stages.test : 'failed' %>">
+           <div class="team-stats__stage-status <%- (team.stages.build === 'succeeded') ? team.stages.test : 'uncompleted' %>">
                Test
            </div>
            <div class="team-stats__death-count-container">

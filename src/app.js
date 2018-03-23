@@ -2,6 +2,7 @@ import './assets/styles/styles.scss'
 
 require('html-loader!./templates/team-stats.html');
 require('html-loader!./templates/index.html');
+require('file-loader!./assets/images/background-dark.png');
 require('file-loader!./assets/images/pinguin-dead.png');
 require('file-loader!./assets/images/pinguin-angel-2.png');
 
