@@ -35,7 +35,7 @@
 
 
            <div class="team-stats__progress-panel">
-               <% Object.keys(team.userStories).forEach(function (userStory, i) { %>
+               <% Object.keys(team.userStories).sort().forEach(function (userStory, i) { %>
                <div class="team-stats__progress-item <%- (team.stages.build === 'succeeded' && team.stages.test === 'succeeded') ? team.userStories[userStory] : 'uncompleted' %>">
                    <%- i + 1 %>
                </div>
